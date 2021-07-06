@@ -1,5 +1,6 @@
 import { Button } from "@material-ui/core";
 import React from "react";
+import { useHistory } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import {
   ButtonsContainer,
@@ -10,6 +11,9 @@ import {
 } from "./styled";
 
 const SignupPage = () => {
+
+  const history = useHistory();
+
   const [form, setForm] = useForm({
     name: "",
     email: "",
@@ -17,9 +21,13 @@ const SignupPage = () => {
     nickname: "",
   });
 
+  const onSubmitForm = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <MainContainer>
-      <StyledForm>
+      <StyledForm onSubmit={onSubmitForm}>
         <Title>Signup</Title>
         <StyledTextField
           onChange={setForm}
@@ -56,10 +64,14 @@ const SignupPage = () => {
           label="password"
         />
         <ButtonsContainer>
-          <Button variant="outlined" color="primary">
+          <Button
+            onClick={() => history.goBack()}
+            variant="outlined"
+            color="primary"
+          >
             back
           </Button>
-          <Button variant="contained" color="primary">
+          <Button type="submit" variant="contained" color="primary">
             Signup
           </Button>
         </ButtonsContainer>
