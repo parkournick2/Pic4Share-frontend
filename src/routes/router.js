@@ -10,16 +10,16 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/login">
+        <Route exact path="/Pic4Share-frontend/login">
           <LoginPage />
         </Route>
-        <Route exact path="/signup">
+        <Route exact path="/Pic4Share-frontend/signup">
           <SignupPage />
         </Route>
-        <Route exact path="/">
+        <Route exact path="/Pic4Share-frontend/">
           <PicturesPage />
         </Route>
-        <Route exact path="/create">
+        <Route exact path="/Pic4Share-frontend/create">
           <CreatePicturePage />
         </Route>
         <Route>
