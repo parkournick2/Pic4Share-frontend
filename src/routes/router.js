@@ -16,7 +16,7 @@ const Router = () => {
         <Route exact path="/Pic4Share-frontend/signup">
           <SignupPage />
         </Route>
-        <Route exact path="/Pic4Share-frontend/">
+        <Route exact path="/Pic4Share-frontend">
           <PicturesPage />
         </Route>
         <Route exact path="/Pic4Share-frontend/create">
