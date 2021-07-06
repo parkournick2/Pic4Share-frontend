@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Pic4Share-frontend/static/js/main.f914f6a0.chunk.js",
-    "main.js.map": "/Pic4Share-frontend/static/js/main.f914f6a0.chunk.js.map",
+    "main.js": "/Pic4Share-frontend/static/js/main.e77fa0ca.chunk.js",
+    "main.js.map": "/Pic4Share-frontend/static/js/main.e77fa0ca.chunk.js.map",
     "runtime-main.js": "/Pic4Share-frontend/static/js/runtime-main.2c2403f0.js",
     "runtime-main.js.map": "/Pic4Share-frontend/static/js/runtime-main.2c2403f0.js.map",
     "static/js/2.33b87879.chunk.js": "/Pic4Share-frontend/static/js/2.33b87879.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.2c2403f0.js",
     "static/js/2.33b87879.chunk.js",
-    "static/js/main.f914f6a0.chunk.js"
+    "static/js/main.e77fa0ca.chunk.js"
   ]
 }
