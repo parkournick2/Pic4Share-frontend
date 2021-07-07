@@ -2,6 +2,7 @@ import { Button } from "@material-ui/core";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import useForm from "../../hooks/useForm";
+import { signup } from "../../services/user";
 import {
   ButtonsContainer,
   MainContainer,
@@ -11,7 +12,6 @@ import {
 } from "./styled";
 
 const SignupPage = () => {
-
   const history = useHistory();
 
   const [form, setForm] = useForm({
@@ -22,6 +22,7 @@ const SignupPage = () => {
   });
 
   const onSubmitForm = (event) => {
+    signup(form, history);
     event.preventDefault();
   };
 

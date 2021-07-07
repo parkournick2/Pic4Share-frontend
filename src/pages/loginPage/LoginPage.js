@@ -5,6 +5,7 @@ import { Button } from "@material-ui/core";
 import { goToSignup } from "../../routes/coordinator";
 import useForm from "../../hooks/useForm";
 import { useHistory } from "react-router-dom";
+import { login } from "../../services/user";
 
 const LoginPage = () => {
   const history = useHistory();
@@ -15,8 +16,11 @@ const LoginPage = () => {
   });
 
   const onSubmitForm = (event) => {
+    login(form, history);
     event.preventDefault();
   };
+
+  
 
   return (
     <MainContainer>
