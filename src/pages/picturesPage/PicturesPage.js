@@ -4,6 +4,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import PictureCard from "../../components/PictureCard";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
+import useRequestData from "../../hooks/useRequestData";
 import { goToLogin } from "../../routes/coordinator";
 import {
   MainContainer,
@@ -13,6 +14,7 @@ import {
   StyledTextField,
   PicturesContainer,
 } from "./styled";
+import { BASE_URL } from "../../constants/urls";
 
 const PicturesPage = () => {
   useProtectedPage();
@@ -20,8 +22,13 @@ const PicturesPage = () => {
 
   const logout = () => {
     localStorage.removeItem("token");
-    goToLogin(history)
+    goToLogin(history);
   };
+
+  const pictures = useRequestData([], `${BASE_URL}/picture/all`);
+  const picturesList = pictures.map((pic) => {
+    return <PictureCard key={pic.id} img={pic.file} title={pic.subtitle} />;
+  });
 
   return (
     <MainContainer>
@@ -38,20 +45,7 @@ const PicturesPage = () => {
         </Button>
       </Header>
       <PicturesContainer>
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
-        <PictureCard />
+        {picturesList}
       </PicturesContainer>
     </MainContainer>
   );
