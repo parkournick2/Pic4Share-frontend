@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { primaryColor } from "../constants/colors";
+import SkyLight from "react-skylight";
 
 const MainContainer = styled.div`
+  margin: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,10 +20,12 @@ const MainContainer = styled.div`
   overflow: hidden;
 `;
 
-const Image = styled.img`
+const TinyImage = styled.img`
   border-radius: 10px;
   height: 200px;
 `;
+
+const RealImage = styled.img``;
 
 const Title = styled.h6`
   color: ${primaryColor};
@@ -40,18 +44,43 @@ const Title = styled.h6`
   text-align: center;
 `;
 
+
+const dialogStyle = {
+  width: "80vw",
+  height: "80vh",
+  alignSelf: 'center',
+  marginTop: "-40vh",
+  marginLeft: "-40vw",
+  overflowY: 'scroll',
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column'
+};
+
 const PictureCard = (props) => {
   const [hover, setHover] = useState(false);
+  let simpleDialog;
 
   return (
-    <MainContainer
-      onClick={() => alert("abra-te sesamo")}
-      onMouseLeave={() => setHover(false)}
-      onMouseEnter={() => setHover(true)}
-    >
-      <Image src={props.img} />
-      <Title view={hover}>{props.title}</Title>
-    </MainContainer>
+    <>
+      <MainContainer
+        onClick={() => simpleDialog.show()}
+        onMouseLeave={() => setHover(false)}
+        onMouseEnter={() => setHover(true)}
+      >
+        <TinyImage src={props.img} />
+        <Title view={hover}>{props.title}</Title>
+      </MainContainer>
+      <SkyLight
+        dialogStyles={dialogStyle}
+        hideOnOverlayClicked
+        ref={(ref) => (simpleDialog = ref)}
+        title={props.title}
+      >
+        <p>posted by: {props.author}</p>
+        <RealImage src={props.img} />
+      </SkyLight>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { TextField } from "@material-ui/core";
+import { TextField, IconButton } from "@material-ui/core";
 import styled from "styled-components";
 import {
   backgroundColor,
@@ -31,7 +31,7 @@ export const Title = styled.h1`
 `;
 
 export const SearchContainer = styled.div`
-  display: flex;
+  display: none;
   align-items: center;
   gap: 15px;
 `
@@ -42,6 +42,13 @@ export const PicturesContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 100px;
   padding: 50px;
+`
+
+export const AddButton = styled(IconButton)`
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  padding: 5px;
+  margin: 25px;
 `

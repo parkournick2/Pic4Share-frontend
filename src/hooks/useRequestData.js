@@ -9,9 +9,6 @@ const useRequestData = (initialData, url) => {
       .get(url, { headers: { Authorization: localStorage.getItem("token") } })
       .then((res) => {
         setData(res.data.result);
-      })
-      .catch((error) => {
-        alert(error.response.data.error || "Tente novamente mais tarde");
       });
   }, [url]);
   return data;
