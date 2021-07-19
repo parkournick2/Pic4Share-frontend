@@ -1,3 +1,6 @@
+import axios from "axios";
+import { BASE_URL } from "../constants/urls";
+
 export const createAlbum = (form) => {
   axios
     .post(`${BASE_URL}/album/create`, form, {
@@ -11,22 +14,17 @@ export const createAlbum = (form) => {
     });
 };
 
-export const getAlbums = () => {
-  const [albums, setAlbums] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${BASE_URL}/album/all`, form, {
-        headers: { Authorization: localStorage.getItem("token") },
-      })
-      .then((res) => {
-        setAlbums(res.data);
-      })
-      .catch((error) => {
-        alert(
-          error.response.data.error || "Erro desconhecido, tente novamente"
-        );
-      });
-  }, [url]);
+export const getAlbums = async () => {
+  const albums = await axios
+    .get(`${BASE_URL}/album/all`, {
+      headers: { Authorization: localStorage.getItem("token") },
+    })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((error) => {
+      alert(error.response.data.error || "Erro desconhecido, tente novamente");
+      return [];
+    });
   return albums;
 };
