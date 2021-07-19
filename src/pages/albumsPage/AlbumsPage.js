@@ -11,28 +11,35 @@ import {
   TitleContainer,
 } from "./styled";
 
-const AlbumsPage = () => {
 
+const AlbumsPage = () => {
   const [albums, setAlbums] = useState([]);
   useEffect(() => {
-    getAlbums().then((res)=>setAlbums(res))
+    getAlbums().then((res) => setAlbums(res));
   }, []);
 
   return (
-    <MainContainer>
-      <Header />
-      <SubContainer>
-        <TitleContainer>
-          <Title>Álbuns</Title>
-        </TitleContainer>
-        <AlbumsContainer>
-          <CreateAlbumCard />
-          {albums.map((album)=>{
-            return <AlbumCard key={album.id} title={album.name} count={album.count} background={album.background}/>
-          })}
-        </AlbumsContainer>
-      </SubContainer>
-    </MainContainer>
+      <MainContainer>
+        <Header />
+        <SubContainer>
+          <TitleContainer>
+            <Title>Álbuns</Title>
+          </TitleContainer>
+          <AlbumsContainer>
+            <CreateAlbumCard/>
+            {albums.map((album) => {
+              return (
+                <AlbumCard
+                  key={album.id}
+                  title={album.name}
+                  count={album.count}
+                  background={album.background}
+                />
+              );
+            })}
+          </AlbumsContainer>
+        </SubContainer>
+      </MainContainer>
   );
 };
 export default AlbumsPage;

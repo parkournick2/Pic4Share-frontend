@@ -8,6 +8,7 @@ export const createAlbum = (form) => {
     })
     .then((res) => {
       alert(res.data.message || "Album criado com sucesso");
+      window.location.reload();
     })
     .catch((error) => {
       alert(error.response.data.error || "Erro desconhecido, tente novamente");
