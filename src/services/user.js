@@ -1,16 +1,17 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
-import { goToLogin, goToPictures } from "../routes/coordinator";
+import { goToAlbums, goToLogin } from "../routes/coordinator";
 
 export const login = (form, history) => {
   axios
     .post(`${BASE_URL}/user/login`, form)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      goToPictures(history);
+      alert(error.response.data.message || "logged in");
+      goToAlbums(history);
     })
     .catch((error) => {
-      alert(error.response.data.error);
+      alert(error.response.data.error || "Erro desconhecido, tente novamente");
     });
 };
 
@@ -19,10 +20,11 @@ export const signup = (form, history) => {
     .post(`${BASE_URL}/user/signup`, form)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
+      alert(error.response.data.message || "registered");
       goToPictures(history);
     })
     .catch((error) => {
-      alert(error.response.data.error);
+      alert(error.response.data.error || "Erro desconhecido, tente novamente");
     });
 };
 
