@@ -7,7 +7,7 @@ export const login = (form, history) => {
     .post(`${BASE_URL}/user/login`, form)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      alert(error.response.data.message || "logged in");
+      alert(error.response.data.message || "Usuário logado");
       goToAlbums(history);
     })
     .catch((error) => {
@@ -20,7 +20,7 @@ export const signup = (form, history) => {
     .post(`${BASE_URL}/user/signup`, form)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      alert(error.response.data.message || "registered");
+      alert(error.response.data.message || "Usuário registrado");
       goToPictures(history);
     })
     .catch((error) => {
