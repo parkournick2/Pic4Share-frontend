@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import PictureCard from "../../components/PictureCard";
 import { MainContainer, PicturesContainer } from "./styled";
 import { useParams } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import { searchPicture } from "../../services/picture";
+import PicturesHeader from "../../components/PicturesHeader";
 
 const PicturesPage = () => {
   useProtectedPage();
@@ -27,10 +27,10 @@ const PicturesPage = () => {
 
   return (
     <MainContainer>
-      <Header search={true} toSearch={search} setForm={setForm}/>
+      <PicturesHeader toSearch={search} setForm={setForm}/>
       <PicturesContainer>
         {pictures.map((picture) => {
-          return <PictureCard img={picture.url} key={picture.id} />;
+          return <PictureCard picture={picture} key={picture.id} />;
         })}
       </PicturesContainer>
     </MainContainer>
