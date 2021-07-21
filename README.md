@@ -21,3 +21,5 @@ http://ec2-54-172-103-84.compute-1.amazonaws.com:3000
 - Post new picture
 - Show pictures
 - Show picture details
+- Search pictures
+- Create album
