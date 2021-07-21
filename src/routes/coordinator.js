@@ -4,8 +4,8 @@ export const goToLogin = (history) => {
 export const goToSignup = (history) => {
   history.push("/signup");
 };
-export const goToPictures = (history) => {
-  history.push("/pictures");
+export const goToPictures = (history, id) => {
+  history.push("/pictures/" + id);
 };
 export const goToAlbums = (history) => {
   history.push("/");

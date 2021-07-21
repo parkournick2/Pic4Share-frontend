@@ -19,7 +19,7 @@ const Router = () => {
         <Route exact path="/">
           <AlbumsPage />
         </Route>
-        <Route exact path="/pictures">
+        <Route exact path="/pictures/:albumId">
           <PicturesPage />
         </Route>
         <Route>

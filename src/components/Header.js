@@ -4,7 +4,7 @@ import styled from "styled-components";
 import SearchIcon from "@material-ui/icons/Search";
 import { primaryColor } from "../constants/colors";
 import { useHistory } from "react-router-dom";
-import { logout } from '../services/user'
+import { logout } from "../services/user";
 
 const MainContainer = styled.div`
   padding: 20px;
@@ -23,7 +23,7 @@ export const Title = styled.h1`
   color: ${primaryColor};
 `;
 export const SearchContainer = styled.div`
-  display: none;
+  display: ${(props) => (props.search ? "flex" : "none")};
   align-items: center;
   gap: 15px;
 `;
@@ -31,14 +31,18 @@ export const StyledTextField = styled(TextField)`
   width: 400px;
 `;
 
-const Header = () => {
+const Header = (props) => {
   const history = useHistory();
   return (
     <MainContainer>
       <Title>Pic4Share</Title>
-      <SearchContainer>
-        <StyledTextField variant="outlined" />
-        <IconButton>
+      <SearchContainer search={props.search}>
+        <StyledTextField
+          name="text"
+          onChange={props.setForm}
+          variant="outlined"
+        />
+        <IconButton onClick={props.toSearch}>
           <SearchIcon />
         </IconButton>
       </SearchContainer>

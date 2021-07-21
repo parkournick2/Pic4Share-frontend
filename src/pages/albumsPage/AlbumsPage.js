@@ -33,6 +33,7 @@ const AlbumsPage = () => {
                   key={album.id}
                   title={album.name}
                   count={album.count}
+                  id={album.id}
                   background={album.background}
                 />
               );

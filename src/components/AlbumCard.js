@@ -1,5 +1,7 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { goToPictures } from "../routes/coordinator";
 
 const BgContainer = styled.div`
   height: 230px;
@@ -30,11 +32,18 @@ const SubTitle = styled.h5`
 `;
 
 const AlbumCard = (props) => {
+  const history = useHistory();
   return (
-    <MainContainer>
+    <MainContainer
+      onClick={() => {
+        goToPictures(history, props.id);
+      }}
+    >
       <BgContainer background={props.background} />
       <Title>{props.title}</Title>
-      <SubTitle>{props.count} {props.count !== 1 ? 'fotos' : 'foto'}</SubTitle>
+      <SubTitle>
+        {props.count} {props.count !== 1 ? "fotos" : "foto"}
+      </SubTitle>
     </MainContainer>
   );
 };

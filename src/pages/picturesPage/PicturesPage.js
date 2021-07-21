@@ -1,41 +1,38 @@
-import { Button, IconButton } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Header from "../../components/Header";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
-import {
-  MainContainer,
-  Header,
-  Title,
-  SearchContainer,
-  StyledTextField,
-  PicturesContainer,
-} from "./styled";
-import { logout } from "../../services/user";
+import PictureCard from "../../components/PictureCard";
+import { MainContainer, PicturesContainer } from "./styled";
+import { useParams } from "react-router-dom";
+import useForm from "../../hooks/useForm";
+import { searchPicture } from "../../services/picture";
 
 const PicturesPage = () => {
   useProtectedPage();
-  const history = useHistory();
+  const { albumId } = useParams();
+  const [pictures, setPictures] = useState([]);
+
+  const [form, setForm] = useForm({
+    albumId: albumId,
+    text: "",
+  });
+
+  useEffect(() => {
+    search();
+  }, []);
+
+  const search = async () => {
+    setPictures(await searchPicture(form));
+  };
 
   return (
     <MainContainer>
-      <Header>
-        <Title>Pic4Share</Title>
-        <SearchContainer>
-          <StyledTextField variant="outlined" />
-          <IconButton>
-            <SearchIcon />
-          </IconButton>
-        </SearchContainer>
-        <Button
-          onClick={() => logout(history)}
-          variant="outlined"
-          color="primary"
-        >
-          Logout
-        </Button>
-      </Header>
-      <PicturesContainer>teste</PicturesContainer>
+      <Header search={true} toSearch={search} setForm={setForm}/>
+      <PicturesContainer>
+        {pictures.map((picture) => {
+          return <PictureCard img={picture.url} key={picture.id} />;
+        })}
+      </PicturesContainer>
     </MainContainer>
   );
 };

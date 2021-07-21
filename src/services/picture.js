@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useState } from "react";
 import { BASE_URL } from "../constants/urls";
 
 export const createPicture = (form) => {
@@ -15,22 +14,16 @@ export const createPicture = (form) => {
     });
 };
 
-export const searchPicture = (form) => {
-  const [pictures, setPictures] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${BASE_URL}/picture/search`, form, {
-        headers: { Authorization: localStorage.getItem("token") },
-      })
-      .then((res) => {
-        setPictures(res.data);
-      })
-      .catch((error) => {
-        alert(
-          error.response.data.error || "Erro desconhecido, tente novamente"
-        );
-      });
-  }, [url]);
+export const searchPicture = async (form) => {
+  const pictures = await axios
+    .post(`${BASE_URL}/picture/search`, form, {
+      headers: { Authorization: localStorage.getItem("token") },
+    })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((error) => {
+      alert(error.response.data.error || "Erro desconhecido, tente novamente");
+    });
   return pictures;
 };
