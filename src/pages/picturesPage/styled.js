@@ -1,10 +1,12 @@
-import { TextField, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
+import { AddCircleOutline } from "@material-ui/icons";
 import styled from "styled-components";
 import {
   backgroundColor,
   neutralColor,
   primaryColor,
 } from "../../constants/colors";
+import { TextField } from "@material-ui/core";
 
 export const MainContainer = styled.div`
   background-color: ${backgroundColor};
@@ -35,14 +37,13 @@ export const SearchContainer = styled.div`
   align-items: center;
   gap: 15px;
 `
-export const StyledTextField = styled(TextField)`
-  width: 400px;
-`
+
 export const PicturesContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 50px;
+  gap: 50px;
 `
 
 export const AddButton = styled(IconButton)`
@@ -51,4 +52,25 @@ export const AddButton = styled(IconButton)`
   right: 0px;
   padding: 5px;
   margin: 25px;
+`
+
+export const StyledIcon = styled(AddCircleOutline)`
+  color: ${primaryColor};
+  font-size: 50px;
+`
+
+export const StyledForm = styled.form`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`
+export const TagTextField = styled(TextField)`
+  width: 150px;
+`
+
+export const AddTagContainer = styled.div`
+  gap: 10px;
+  display: flex;
+  align-items: center;
 `

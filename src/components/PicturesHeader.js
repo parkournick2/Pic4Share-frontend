@@ -4,7 +4,7 @@ import styled from "styled-components";
 import SearchIcon from "@material-ui/icons/Search";
 import { primaryColor } from "../constants/colors";
 import { useHistory } from "react-router-dom";
-import { logout } from "../services/user";
+import { goToAlbums } from "../routes/coordinator";
 
 const MainContainer = styled.div`
   padding: 20px;
@@ -12,7 +12,7 @@ const MainContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  height: 60px;
+  height: 80px;
   width: 100%;
   box-shadow: 0px 0px 4px black;
 `;
@@ -22,22 +22,39 @@ export const Title = styled.h1`
   margin: 0px;
   color: ${primaryColor};
 `;
+export const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+`;
+export const StyledTextField = styled(TextField)`
+  width: 400px;
+`;
 
-
-const Header = () => {
+const PicturesHeader = (props) => {
   const history = useHistory();
   return (
     <MainContainer>
       <Title>Pic4Share</Title>
+      <SearchContainer>
+        <StyledTextField
+          name="text"
+          onChange={props.setForm}
+          variant="outlined"
+        />
+        <IconButton onClick={props.toSearch}>
+          <SearchIcon />
+        </IconButton>
+      </SearchContainer>
       <Button
-        onClick={() => logout(history)}
+        onClick={() => goToAlbums(history)}
         variant="outlined"
         color="primary"
       >
-        Logout
+        Voltar
       </Button>
     </MainContainer>
   );
 };
 
-export default Header;
+export default PicturesHeader;

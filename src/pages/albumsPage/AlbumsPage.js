@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AlbumCard from "../../components/AlbumCard";
 import CreateAlbumCard from "../../components/CreateAlbumCard";
 import Header from "../../components/Header";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { getAlbums } from "../../services/albums";
 import {
   AlbumsContainer,
@@ -13,6 +14,7 @@ import {
 
 
 const AlbumsPage = () => {
+  useProtectedPage();
   const [albums, setAlbums] = useState([]);
   useEffect(() => {
     getAlbums().then((res) => setAlbums(res));
