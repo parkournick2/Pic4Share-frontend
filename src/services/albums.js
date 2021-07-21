@@ -1,22 +1,23 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
 
-export const createPicture = (form) => {
+export const createAlbum = (form) => {
   axios
-    .post(`${BASE_URL}/picture/create`, form, {
+    .post(`${BASE_URL}/album/create`, form, {
       headers: { Authorization: localStorage.getItem("token") },
     })
     .then((res) => {
-      alert(res.data.message || "Imagem criada com sucesso");
+      alert(res.data.message || "Album criado com sucesso");
+      window.location.reload();
     })
     .catch((error) => {
       alert(error.response.data.error || "Erro desconhecido, tente novamente");
     });
 };
 
-export const searchPicture = async (form) => {
-  const pictures = await axios
-    .post(`${BASE_URL}/picture/search`, form, {
+export const getAlbums = async () => {
+  const albums = await axios
+    .get(`${BASE_URL}/album/all`, {
       headers: { Authorization: localStorage.getItem("token") },
     })
     .then((res) => {
@@ -24,6 +25,7 @@ export const searchPicture = async (form) => {
     })
     .catch((error) => {
       alert(error.response.data.error || "Erro desconhecido, tente novamente");
+      return [];
     });
-  return pictures;
+  return albums;
 };

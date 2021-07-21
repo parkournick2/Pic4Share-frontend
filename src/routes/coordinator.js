@@ -1,12 +1,15 @@
 export const goToLogin = (history) => {
-  history.push("/Pic4Share-frontend/login");
+  history.push("/login");
 };
 export const goToSignup = (history) => {
-  history.push("/Pic4Share-frontend/signup");
+  history.push("/signup");
 };
-export const goToPictures = (history) => {
-  history.push("/Pic4Share-frontend");
+export const goToPictures = (history, id) => {
+  history.push("/pictures/" + id);
 };
-export const goToCreatePicture = (history) => {
-  history.push("/Pic4Share-frontend/create");
+export const goToAlbums = (history) => {
+  history.push("/");
+};
+export const goBack = (history) => {
+  history.goBack();
 };

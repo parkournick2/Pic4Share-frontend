@@ -20,8 +20,6 @@ const LoginPage = () => {
     event.preventDefault();
   };
 
-  
-
   return (
     <MainContainer>
       <StyledForm onSubmit={onSubmitForm}>

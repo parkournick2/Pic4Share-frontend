@@ -4,10 +4,7 @@ import { backgroundColor, primaryColor } from "../../constants/colors";
 
 const grow = keyframes`
   to {
-    height: 500px;
-    width: 500px;
-    border-radius: 50px;
-    gap: 25px;
+    box-shadow: 35px 35px 70px #c0b6c8, -35px -35px 70px #fff6ff; 
   }
 `;
 
@@ -27,17 +24,16 @@ export const Title = styled.h1`
 `;
 
 export const StyledForm = styled.form`
-  height: 400px;
-  width: 350px;
-  animation: ${grow} 300ms linear forwards;
-  border-radius: 100px;
+  animation: ${grow} 1s linear forwards;
+  height: 500px;
+  width: 500px;
+  border-radius: 50px;
+  gap: 25px;
   background: #e2d6eb;
-  box-shadow: 35px 35px 70px #c0b6c8, -35px -35px 70px #fff6ff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
 `;
 
 export const ButtonsContainer = styled.div`
