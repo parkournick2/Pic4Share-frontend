@@ -2,7 +2,7 @@
 frontend do meu primeiro site fullstack
 
 ## Deploy
-http://ec2-54-172-103-84.compute-1.amazonaws.com:3000/Pic4Share-frontend
+http://ec2-54-172-103-84.compute-1.amazonaws.com:3000
 
 ## Tecnologias
 - ReactJS
