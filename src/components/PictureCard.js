@@ -51,7 +51,6 @@ const PictureCard = (props) => {
     <>
       <PopPop
         contentStyle={{ overflow: "hidden" }}
-        position="centerCenter"
         open={modal}
         onClose={() => {
           document.body.style.overflow = "auto";

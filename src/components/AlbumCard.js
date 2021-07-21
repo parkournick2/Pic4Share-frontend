@@ -11,6 +11,7 @@ const BgContainer = styled.div`
   transition: 500ms;
   background-image: url(${(props) => props.background});
   background-position: center;
+  background-size: 230px;
   :hover {
     cursor: pointer;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
