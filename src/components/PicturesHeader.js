@@ -39,6 +39,7 @@ const PicturesHeader = (props) => {
       <SearchContainer>
         <StyledTextField
           name="text"
+          placeholder="Pesquise por nome ou tag"
           onChange={props.setForm}
           variant="outlined"
         />
