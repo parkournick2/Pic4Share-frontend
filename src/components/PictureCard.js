@@ -25,7 +25,11 @@ const TinyTitle = styled.p`
   background-color: white;
 `;
 
-const StyledModal = styled.div``;
+const StyledModal = styled.div`
+  img{
+    max-width:800px;
+  }
+`;
 
 const TagsContainer = styled.div`
   display: flex;

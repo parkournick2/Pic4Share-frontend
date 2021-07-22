@@ -8,6 +8,7 @@ export const createPicture = (form) => {
     })
     .then((res) => {
       alert(res.data.message || "Imagem criada com sucesso");
+      window.location.reload();
     })
     .catch((error) => {
       alert(error.response.data.error || "Erro desconhecido, tente novamente");
