@@ -73,7 +73,7 @@ const PictureCard = (props) => {
             ))}
           </TagsContainer>
           <p>
-            <b>data de postagem:</b> {data.getUTCDate()}/
+            <b>data de postagem:</b> {data.getDate()}/
             {data.getUTCMonth() + 1}/{data.getUTCFullYear()}
           </p>
         </StyledModal>
